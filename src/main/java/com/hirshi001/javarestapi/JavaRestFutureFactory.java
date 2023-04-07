@@ -1,33 +1,12 @@
 package com.hirshi001.javarestapi;
 
-import com.hirshi001.restapi.RestFuture;
-import com.hirshi001.restapi.RestFutureConsumer;
-import com.hirshi001.restapi.RestFutureFactory;
-import com.hirshi001.restapi.ScheduledExec;
+import com.hirshi001.restapi.*;
 
 import java.util.concurrent.*;
 
 public class JavaRestFutureFactory implements RestFutureFactory {
 
-    private static final ScheduledExec DEFAULT_EXECUTOR = new ScheduledExec() {
-        final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(ForkJoinPool.getCommonPoolParallelism());
-
-        @Override
-        public void run(Runnable runnable, long delay) {
-            scheduledExecutorService.schedule(runnable, delay, TimeUnit.MILLISECONDS);
-        }
-
-        @Override
-        public void run(Runnable runnable, long delay, TimeUnit period) {
-            scheduledExecutorService.schedule(runnable, delay, period);
-        }
-
-        @Override
-        public void runDeferred(Runnable runnable) {
-            scheduledExecutorService.execute(runnable);
-        }
-    };
-
+    private static final ScheduledExec DEFAULT_EXECUTOR = new JavaScheduledExecutor();
 
     @Override
     public <T> RestFuture<T, T> create() {
@@ -74,5 +53,10 @@ public class JavaRestFutureFactory implements RestFutureFactory {
                 future.setCause(e);
             }
         }, null);
+    }
+
+    @Override
+    public ScheduledExec getDefaultExecutor() {
+        return DEFAULT_EXECUTOR;
     }
 }

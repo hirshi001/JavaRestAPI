@@ -15,7 +15,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
-    implementation 'com.github.hirshi001:RestApi:5cb0ab6457'
+    implementation 'com.github.hirshi001:RestApi:67b7b188cf'
 }
 
 
