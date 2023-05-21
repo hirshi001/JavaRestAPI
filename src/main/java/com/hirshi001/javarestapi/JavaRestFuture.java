@@ -1,3 +1,19 @@
+/*
+ * Copyright 2023 Hrishikesh Ingle
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.hirshi001.javarestapi;
 
 import com.hirshi001.restapi.RestFuture;
@@ -10,8 +26,14 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+/**
+ * An implementation of the {@link RestFuture} interface for the Java platform.
+ * @param <T> The type of the input to the task
+ * @param <U> The type of the output of the task
+ *
+ * @author Hrishikesh Ingle
+ */
 public class JavaRestFuture<T, U> implements RestFuture<T, U> {
-
 
     private ScheduledExec executor;
     private boolean isCancelled;
@@ -288,7 +310,7 @@ public class JavaRestFuture<T, U> implements RestFuture<T, U> {
 
     @Override
     public void taskFinished(U result) {
-        //TODO: we should check for possible recursive calls causing deadlocks
+        // TODO: we should check for possible recursive calls causing deadlocks
         this.result = result;
         isDone = true;
         this.isSuccess = true;
@@ -335,6 +357,13 @@ public class JavaRestFuture<T, U> implements RestFuture<T, U> {
 
 }
 
+/**
+ * A simple class to store a listener and the executor it should be run on
+ * @param <T> the type of the input of the RestFutureListener
+ * @param <U> the type of the output of the RestFutureListener
+ *
+ * @author Hrishikesh Ingle
+ */
 class ListenerExecutor<T, U> {
     final ScheduledExec executor;
     final RestFutureListener<T, U> listener;
