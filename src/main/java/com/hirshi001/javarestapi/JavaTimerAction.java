@@ -19,6 +19,7 @@ package com.hirshi001.javarestapi;
 import com.hirshi001.restapi.TimerAction;
 
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 /**
  * An implementation of the {@link TimerAction} interface for the Java platform.
@@ -36,10 +37,23 @@ public class JavaTimerAction extends TimerAction {
 
     @Override
     public void cancel() {
-        super.cancel();
         future.cancel(true);
     }
 
+    @Override
+    public boolean isCancelled() {
+        return future.isCancelled();
+    }
+
+    @Override
+    public boolean isDone() {
+        return future.isDone();
+    }
+
+    @Override
+    public long getRemainingDelay() {
+        return future.getDelay(TimeUnit.MILLISECONDS);
+    }
 
 
 }

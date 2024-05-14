@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.RestTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-05-14T23:35:14" hostname="Hrishikeshs-MacBook-Pro.local" time="1.719">
+  <properties/>
+  <testcase name="GetTestDelayFail()" classname="test.RestTest" time="0.078"/>
+  <testcase name="BasicMethodsTest()" classname="test.RestTest" time="1.209"/>
+  <testcase name="ListenerErrorTest()" classname="test.RestTest" time="0.003"/>
+  <testcase name="AsyncMethodsTest()" classname="test.RestTest" time="0.107"/>
+  <testcase name="GetTestDelaySuccess()" classname="test.RestTest" time="0.108"/>
+  <testcase name="GetTest()" classname="test.RestTest" time="0.106"/>
+  <testcase name="BothMethodsTest()" classname="test.RestTest" time="0.104"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

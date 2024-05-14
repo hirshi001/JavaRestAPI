@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="test.JavaScheduledExecTester" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-14T21:47:13" hostname="Hrishikeshs-MacBook-Pro.local" time="3.983">
-  <properties/>
-  <testcase name="runRepeat()" classname="test.JavaScheduledExecTester" time="3.983"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
