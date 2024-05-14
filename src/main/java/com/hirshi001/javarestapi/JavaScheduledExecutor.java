@@ -34,13 +34,8 @@ public class JavaScheduledExecutor implements ScheduledExec {
     final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(ForkJoinPool.getCommonPoolParallelism());
 
     @Override
-    public void run(Runnable runnable, long delay) {
-        scheduledExecutorService.schedule(runnable, delay, TimeUnit.MILLISECONDS);
-    }
-
-    @Override
-    public void run(Runnable runnable, long delay, TimeUnit period) {
-        scheduledExecutorService.schedule(runnable, delay, period);
+    public TimerAction run(Runnable runnable, long delay, TimeUnit period) {
+        return new JavaTimerAction(scheduledExecutorService.schedule(runnable, delay, period), delay, 0 ,runnable, false);
     }
 
     @Override
@@ -50,6 +45,6 @@ public class JavaScheduledExecutor implements ScheduledExec {
 
     @Override
     public TimerAction repeat(Runnable runnable, long initialDelay, long delay, TimeUnit period) {
-        return new JavaTimerAction(scheduledExecutorService.scheduleAtFixedRate(runnable, initialDelay, delay, period), initialDelay, delay, runnable);
+        return new JavaTimerAction(scheduledExecutorService.scheduleAtFixedRate(runnable, initialDelay, delay, period), initialDelay, delay, runnable, true);
     }
 }

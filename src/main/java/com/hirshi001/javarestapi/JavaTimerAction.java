@@ -29,8 +29,8 @@ public class JavaTimerAction extends TimerAction {
 
     private final ScheduledFuture<?> future;
 
-    public JavaTimerAction(ScheduledFuture<?> future, long initialDelay, long delay, Runnable runnable) {
-        super(initialDelay, delay, runnable);
+    public JavaTimerAction(ScheduledFuture<?> future, long initialDelay, long delay, Runnable runnable, boolean repeating) {
+        super(initialDelay, delay, runnable, repeating);
         this.future = future;
     }
 

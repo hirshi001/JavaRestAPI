@@ -205,5 +205,4 @@ public class RestTest {
         assertDoesNotThrow(()->future.addListener(future.getScheduledExec(), listener));
     }
 
-
 }
